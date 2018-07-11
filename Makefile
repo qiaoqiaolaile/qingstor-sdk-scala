@@ -27,9 +27,9 @@ generate:
         echo "ERROR: Command \"snips\" not found."; \
     fi
 	snips \
-        --service=qingstor --service-api-version=latest \
-        --spec="./specs" --template="./template" \
-        --output="./src/main/scala/com/qingstor/sdk/service"
+        -f ./specs/qingstor/2016-01-06/swagger/api_v2.0.json \
+        -t ./template \
+        -o ./src/main/scala/com/qingstor/sdk/service
 	@rm ./src/main/scala/com/qingstor/sdk/service/Object.scala
 	sbt scalafmt
 	@echo "OK"
